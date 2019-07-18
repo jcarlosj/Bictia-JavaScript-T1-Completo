@@ -1,14 +1,22 @@
-// Explicación simple
-var frase = prompt( 'Escribe una frase' ),
-    invFrase = frase .split('') .reverse() .join('');
 
-console .log( frase, invFrase );
-
-if( invFrase == frase ) {
-    console.log( 'Es palindromo' );
-}
-else {
-    console.log( 'No es palindromo' );
+window .onload = function() {
+    App .init();
 }
 
-
+var App = {
+    phrase: null,
+    invPhrase: null,
+    init: function() {
+        this .phrase = prompt( 'Escribe una frase' );
+        App .invertir();
+        
+        //console .log( this .phrase, this .invPhrase );
+        console .log( App .message() );
+    },
+    invertir: function() {
+        this .invPhrase = this .phrase .split( '' ) .reverse() .join( '' );
+    },
+    message: function() {
+        return this .invPhrase == this .phrase ? 'Es palindromo' : 'No es palindromo';
+    }
+}
